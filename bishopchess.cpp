@@ -59,6 +59,26 @@ int y=currentPos.first;
      x-=1;
 
     }
+    ////////////////////////////////////////////////////
+     x=currentPos.second;
+     y=currentPos.first;
+
+    while(x>=1&&y<=8)
+    {
+     if(board->board[y+1][x-1]==nullptr)
+       movesBishop.emplace_back(y+1,x-1);
+     else if(board->board[y-1][x-1]->color==this->color)
+       break;
+     else if(board->board[y-1][x-1]->color!=this->color)
+       {
+           movesBishop.emplace_back(y+1,x-1);
+           break;
+       }
+     y+=1;
+     x-=1;
+
+    }
+
 
 
 
