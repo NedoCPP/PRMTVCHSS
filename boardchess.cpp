@@ -1,6 +1,7 @@
 #include "pawnchess.h"
 #include "knightchess.h"
 #include "boardchess.h"
+#include "bishopchess.h"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -59,6 +60,7 @@ void BoardChess::start() //Основной цикл
  int N=1;//count для велосипеда
  std::vector<std::unique_ptr<BaseChess>> pawns;
 
+ /*
  for(int i=1;i<=8;i++)
  {
    std::unique_ptr<PawnChess> p0(new PawnChess(i,7,"W",this,1));
@@ -66,11 +68,15 @@ void BoardChess::start() //Основной цикл
    pawns.emplace_back(std::move(p0));
    pawns.emplace_back(std::move(p1));
  }
- /*
-   std::unique_ptr<KnightChess> k(new KnightChess(2,8,"K",this,1));
-   pawns.emplace_back(std::move(k));
 */
- KnightChess k(2,8,"K",this,1);
+   std::unique_ptr<KnightChess> k(new KnightChess(1,1,"K",this,1));
+   pawns.emplace_back(std::move(k));
+
+  std::unique_ptr<BishopChess> b(new BishopChess(6,2,"B",this,1));
+  pawns.emplace_back(std::move(b));
+
+
+
 
     for(;;)
     {
