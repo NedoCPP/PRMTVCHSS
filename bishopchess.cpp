@@ -78,45 +78,45 @@ int y=currentPos.first;
      x-=1;
     }
     /////////////////////////////////////////////////////
-    /*
-    x=currentPos.second;
-    y=currentPos.first;
+
+    x=currentPos.second+1;
+    y=currentPos.first+1;
 
    while(x<=8&&y<=8)
    {
-    if(board->board[y+1][x+1]==nullptr)
-      movesBishop.emplace_back(y+1,x+1);
-    else if(board->board[y-1][x-1]->color==this->color)
+    if(board->board[y][x]==nullptr)
+      movesBishop.emplace_back(y,x);
+    else if(board->board[y][x]->color==this->color)
       break;
-    else if(board->board[y-1][x-1]->color!=this->color)
+    else if(board->board[y][x]->color!=this->color)
       {
-          movesBishop.emplace_back(y+1,x-1);
+          movesBishop.emplace_back(y,x);
           break;
       }
     y+=1;
-    x-=1;
+    x+=1;
    }
 ////////////////////////////////////////////////////////////
    x=currentPos.second;
    y=currentPos.first;
 
-  while(x>=1&&y<=8)
+  while(x<=8&&y>=1)
   {
-   if(board->board[y+1][x-1]==nullptr)
-     movesBishop.emplace_back(y+1,x-1);
-   else if(board->board[y-1][x-1]->color==this->color)
+   if(board->board[y-1][x+1]==nullptr)
+     movesBishop.emplace_back(y-1,x+1);
+   else if(board->board[y-1][x+1]->color==this->color)
      break;
-   else if(board->board[y-1][x-1]->color!=this->color)
+   else if(board->board[y-1][x+1]->color!=this->color)
      {
-         movesBishop.emplace_back(y+1,x-1);
+         movesBishop.emplace_back(y-1,x+1);
          break;
      }
-   y+=1;
-   x-=1;
+   y-=1;
+   x+=1;
   }
 
 
-*/
+
 
 
 }
