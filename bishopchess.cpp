@@ -12,7 +12,6 @@ BishopChess::BishopChess(int x, int y, std::string s, BoardChess *board, bool co
     board->board[y-1][x-1]=this;
 
 }
-
 bool BishopChess::step(int x, int y, BoardChess *board)
 {
    possibleMoves(board);
@@ -37,7 +36,6 @@ bool BishopChess::step(int x, int y, BoardChess *board)
 
     }
 }
-
 void BishopChess::possibleMoves(BoardChess *board)
 {
 this->movesBishop.clear();
@@ -63,7 +61,7 @@ int y=currentPos.first;
      x=currentPos.second;
      y=currentPos.first;
 
-    while(x>=1&&y<=8)
+    while(x>=1&&y<=6)
     {
      if(board->board[y+1][x-1]==nullptr)
        movesBishop.emplace_back(y+1,x-1);
@@ -82,7 +80,7 @@ int y=currentPos.first;
     x=currentPos.second+1;
     y=currentPos.first+1;
 
-   while(x<=8&&y<=8)
+   while(x<=8&&y<=7)
    {
     if(board->board[y][x]==nullptr)
       movesBishop.emplace_back(y,x);
@@ -100,7 +98,7 @@ int y=currentPos.first;
    x=currentPos.second;
    y=currentPos.first;
 
-  while(x<=8&&y>=1)
+  while(x<=7&&y>=1)
   {
    if(board->board[y-1][x+1]==nullptr)
      movesBishop.emplace_back(y-1,x+1);
@@ -114,8 +112,6 @@ int y=currentPos.first;
    y-=1;
    x+=1;
   }
-
-
 
 
 

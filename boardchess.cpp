@@ -6,8 +6,6 @@
 #include <memory>
 #include <string>
 
-
-
 BoardChess::BoardChess():board(8,std::vector<BaseChess*>(8,nullptr)){};
 bool BoardChess::onBoard(int x1, int y1,int x2, int y2)// x1,y1- координаты выбора фигуры, x2,y2- куда ходить
 {
@@ -69,11 +67,15 @@ void BoardChess::start() //Основной цикл
    pawns.emplace_back(std::move(p1));
  }
 */
-   std::unique_ptr<KnightChess> k(new KnightChess(2,6,"K",this,0));
-   pawns.emplace_back(std::move(k));
 
-  std::unique_ptr<BishopChess> b(new BishopChess(6,2,"B",this,1));
+  std::unique_ptr<BishopChess> b(new BishopChess(8,5,"1",this,1));
   pawns.emplace_back(std::move(b));
+  std::unique_ptr<BishopChess> b1(new BishopChess(4,8,"0",this,0));
+  pawns.emplace_back(std::move(b1));
+  std::unique_ptr<BishopChess> b2(new BishopChess(1,4,"1",this,1));
+  pawns.emplace_back(std::move(b2));
+  std::unique_ptr<BishopChess> b3(new BishopChess(4,1,"0",this,0));
+  pawns.emplace_back(std::move(b3));
 
 
 
