@@ -69,7 +69,7 @@ void BoardChess::start() //Основной цикл
    pawns.emplace_back(std::move(p1));
  }
 */
-   std::unique_ptr<KnightChess> k(new KnightChess(1,1,"K",this,1));
+   std::unique_ptr<KnightChess> k(new KnightChess(2,6,"K",this,0));
    pawns.emplace_back(std::move(k));
 
   std::unique_ptr<BishopChess> b(new BishopChess(6,2,"B",this,1));
