@@ -42,76 +42,39 @@ this->movesBishop.clear();
 int x=currentPos.second;
 int y=currentPos.first;
 
-    while(x>=1&&y>=1)
+
+for(int i=0;i<4;i++)
+{
+
+  while(x>=0&&x<8&&y>=0&&y<8)
     {
-     if(board->board[y-1][x-1]==nullptr)
-       movesBishop.emplace_back(y-1,x-1);
-     else if(board->board[y-1][x-1]->color==this->color)
-       break;
-     else if(board->board[y-1][x-1]->color!=this->color)
-       {
-           movesBishop.emplace_back(y-1,x-1);
-           break;
-       }
-     y-=1;
-     x-=1;
-
-    }
-    ////////////////////////////////////////////////////
-     x=currentPos.second;
-     y=currentPos.first;
-
-    while(x>=1&&y<=6)
-    {
-     if(board->board[y+1][x-1]==nullptr)
-       movesBishop.emplace_back(y+1,x-1);
-     else if(board->board[y+1][x-1]->color==this->color)
-       break;
-     else if(board->board[y+1][x-1]->color!=this->color)
-       {
-           movesBishop.emplace_back(y+1,x-1);
-           break;
-       }
-     y+=1;
-     x-=1;
-    }
-    /////////////////////////////////////////////////////
-
-    x=currentPos.second+1;
-    y=currentPos.first+1;
-
-   while(x<=7&&y<=7)
-   {
-    if(board->board[y][x]==nullptr)
-      movesBishop.emplace_back(y,x);
-    else if(board->board[y][x]->color==this->color)
-      break;
-    else if(board->board[y][x]->color!=this->color)
-      {
-          movesBishop.emplace_back(y,x);
-          break;
-      }
-    y+=1;
-    x+=1;
-   }
-////////////////////////////////////////////////////////////
-   x=currentPos.second;
-   y=currentPos.first;
-
-  while(x<=6&&y>=1)
-  {
-   if(board->board[y-1][x+1]==nullptr)
-     movesBishop.emplace_back(y-1,x+1);
-   else if(board->board[y-1][x+1]->color==this->color)
-     break;
-   else if(board->board[y-1][x+1]->color!=this->color)
-     {
-         movesBishop.emplace_back(y-1,x+1);
-         break;
+     if(board->board[y][x]==this){}
+  else{
+      if(board->board[y][x]==nullptr)
+        movesBishop.emplace_back(y,x);
+      else if(board->board[y][x]->color==this->color)
+        break;
+      else if(board->board[y][x]->color!=this->color)
+        {
+            movesBishop.emplace_back(y,x);
+            break;
+        }
      }
-   y-=1;
-   x+=1;
-  }
+
+      switch(i)
+      {
+        case 0:{y-=1;x-=1;break;}
+        case 1:{x-=1;y+=1;break;}
+        case 2:{y+=1;x+=1;break;}
+        case 3:{x+=1;y-=1;break;}
+      }
+}
+    x=currentPos.second;
+    y=currentPos.first;
+}
+
+
+
 
 
 
