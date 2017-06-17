@@ -8,7 +8,8 @@ SOURCES += main.cpp \
     knightchess.cpp \
     pawnchess.cpp \
     boardchess.cpp \
-    bishopchess.cpp
+    bishopchess.cpp \
+    rookchess.cpp
 QMAKE_CXXFLAGS += -std=c++14
 CONFIG += c++14
 
@@ -17,5 +18,6 @@ HEADERS += \
     pawnchess.h \
     basechess.h \
     boardchess.h \
-    bishopchess.h
+    bishopchess.h \
+    rookchess.h
 

@@ -2,6 +2,7 @@
 #include "knightchess.h"
 #include "boardchess.h"
 #include "bishopchess.h"
+#include "rookchess.h"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -68,16 +69,11 @@ void BoardChess::start() //Основной цикл
  }
 */
 
-  std::unique_ptr<BishopChess> b(new BishopChess(8,5,"1",this,1));
+  std::unique_ptr<RookChess> b(new RookChess(8,5,"1",this,1));
   pawns.emplace_back(std::move(b));
-  std::unique_ptr<BishopChess> b1(new BishopChess(4,8,"0",this,0));
-  pawns.emplace_back(std::move(b1));
-  std::unique_ptr<BishopChess> b2(new BishopChess(1,4,"1",this,1));
+
+  std::unique_ptr<RookChess> b2(new RookChess(1,5,"0",this,0));
   pawns.emplace_back(std::move(b2));
-  std::unique_ptr<BishopChess> b3(new BishopChess(4,1,"0",this,0));
-  pawns.emplace_back(std::move(b3));
-
-
 
 
     for(;;)

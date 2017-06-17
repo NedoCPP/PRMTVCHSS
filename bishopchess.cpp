@@ -80,7 +80,7 @@ int y=currentPos.first;
     x=currentPos.second+1;
     y=currentPos.first+1;
 
-   while(x<=8&&y<=7)
+   while(x<=7&&y<=7)
    {
     if(board->board[y][x]==nullptr)
       movesBishop.emplace_back(y,x);
@@ -98,7 +98,7 @@ int y=currentPos.first;
    x=currentPos.second;
    y=currentPos.first;
 
-  while(x<=7&&y>=1)
+  while(x<=6&&y>=1)
   {
    if(board->board[y-1][x+1]==nullptr)
      movesBishop.emplace_back(y-1,x+1);
