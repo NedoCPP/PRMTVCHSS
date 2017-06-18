@@ -4,6 +4,7 @@
 #include "bishopchess.h"
 #include "rookchess.h"
 #include "queenchess.h"
+#include "kingchess.h"
 #include <iostream>
 #include <memory>
 #include <string>
@@ -58,7 +59,6 @@ void BoardChess::start() //Основной цикл
 {
  int x1,y1,x2,y2;
  int N=1;//count для велосипеда
- std::vector<std::unique_ptr<BaseChess>> pawns;
 
  /*
  for(int i=1;i<=8;i++)
@@ -70,11 +70,28 @@ void BoardChess::start() //Основной цикл
  }
 */
 
-  std::unique_ptr<QueenChess> b2(new QueenChess(1,5,"0",this,0));
-  pawns.emplace_back(std::move(b2));
+  //std::unique_ptr<KingChess> b2(new KingChess(4,5,"K",this,1));
 
-  std::unique_ptr<QueenChess> b1(new QueenChess(8,5,"1",this,1));
+  std::unique_ptr<PawnChess> b1(new PawnChess(4,7,"P",this,1));
   pawns.emplace_back(std::move(b1));
+
+ // std::unique_ptr<PawnChess> b2(new PawnChess(5,5,"1",this,1));
+  //pawns.emplace_back(std::move(b2));
+
+
+ std::unique_ptr<QueenChess> b(new QueenChess(5,6,"Q",this,0));
+  pawns.emplace_back(std::move(b));
+
+
+  //std::unique_ptr<RookChess> b3(new RookChess(2,3,"R",this,0));
+ // pawns.emplace_back(std::move(b3));
+
+
+
+
+
+
+
 
     for(;;)
     {

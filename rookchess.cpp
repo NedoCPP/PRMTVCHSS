@@ -14,7 +14,7 @@ bool RookChess::step(int x, int y, BoardChess *board)
 {
    possibleMoves(board);
 
-   for(auto it=movesRook.begin();it<=movesRook.end()-1;it++)
+   for(auto it=moves.begin();it<=moves.end()-1;it++)
     {
 
        if(it->first==y-1&&it->second==x-1)
@@ -25,7 +25,7 @@ bool RookChess::step(int x, int y, BoardChess *board)
            return 1;
        }
 
-     else if(it==movesRook.end()-1)
+     else if(it==moves.end()-1)
        {
            {std::cout<<"move is impossible"<<std::endl;
                     return 0;}
@@ -36,7 +36,7 @@ bool RookChess::step(int x, int y, BoardChess *board)
 }
 void RookChess::possibleMoves(BoardChess* board)
 {
-    this->movesRook.clear();
+    this->moves.clear();
     int x=currentPos.second;
     int y=currentPos.first;
 
@@ -48,12 +48,12 @@ void RookChess::possibleMoves(BoardChess* board)
          if(board->board[y][x]==this){}
       else{
           if(board->board[y][x]==nullptr)
-            movesRook.emplace_back(y,x);
+            moves.emplace_back(y,x);
           else if(board->board[y][x]->color==this->color)
             break;
           else if(board->board[y][x]->color!=this->color)
             {
-                movesRook.emplace_back(y,x);
+                moves.emplace_back(y,x);
                 break;
             }
          }
@@ -71,28 +71,3 @@ void RookChess::possibleMoves(BoardChess* board)
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

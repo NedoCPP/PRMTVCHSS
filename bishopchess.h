@@ -6,7 +6,7 @@
 
 struct BishopChess:public BaseChess
 {
-    std::vector<std::pair<int,int>> movesBishop;//possible moves
+    std::vector<std::pair<int,int>> moves;//possible moves
 
        bool step(int x, int y, BoardChess*) override;
        BishopChess(int,int, std::string,BoardChess*,bool);

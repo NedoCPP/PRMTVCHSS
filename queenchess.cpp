@@ -15,7 +15,7 @@ bool QueenChess::step(int x, int y, BoardChess *board)
 {
    possibleMoves(board);
 
-   for(auto it=movesQuenn.begin();it<=movesQuenn.end()-1;it++)
+   for(auto it=moves.begin();it<=moves.end()-1;it++)
     {
 
        if(it->first==y-1&&it->second==x-1)
@@ -26,19 +26,17 @@ bool QueenChess::step(int x, int y, BoardChess *board)
            return 1;
        }
 
-     else if(it==movesQuenn.end()-1)
+     else if(it==moves.end()-1)
        {
            {std::cout<<"move is impossible"<<std::endl;
                     return 0;}
        }
-
-
     }
 }
 
 void QueenChess::possibleMoves(BoardChess* board)
 {
-    this->movesQuenn.clear();
+    this->moves.clear();
     int x=currentPos.second;
     int y=currentPos.first;
 
@@ -50,12 +48,12 @@ void QueenChess::possibleMoves(BoardChess* board)
          if(board->board[y][x]==this){}
       else{
           if(board->board[y][x]==nullptr)
-            movesQuenn.emplace_back(y,x);
+            moves.emplace_back(y,x);
           else if(board->board[y][x]->color==this->color)
             break;
           else if(board->board[y][x]->color!=this->color)
             {
-                movesQuenn.emplace_back(y,x);
+                moves.emplace_back(y,x);
                 break;
             }
          }

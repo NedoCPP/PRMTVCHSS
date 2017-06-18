@@ -4,7 +4,7 @@
 
 struct QueenChess:public BaseChess
 {
-    std::vector<std::pair<int,int>> movesQuenn;//possible moves
+    std::vector<std::pair<int,int>> moves;//possible moves
 
        bool step(int x, int y, BoardChess*) override;
        QueenChess(int,int, std::string,BoardChess*,bool);

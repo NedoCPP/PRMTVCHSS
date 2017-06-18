@@ -9,7 +9,7 @@ bool KnightChess::step(int x, int y, BoardChess *board)
 {
     possibleMoves(board);
 
-  for(auto it=movesKnight.begin();it<=movesKnight.end()-1;it++)
+  for(auto it=moves.begin();it<=moves.end()-1;it++)
    {
 
       if(it->first==y-1&&it->second==x-1)
@@ -20,7 +20,7 @@ bool KnightChess::step(int x, int y, BoardChess *board)
           return 1;
       }
 
-    else if(it==movesKnight.end()-1)
+    else if(it==moves.end()-1)
       {
           {std::cout<<"move is impossible"<<std::endl;
                    return 0;}
@@ -41,48 +41,48 @@ KnightChess::KnightChess(int x, int y, std::string s, BoardChess *board, bool co
 void KnightChess::possibleMoves(BoardChess* board)
 {
 
-this->movesKnight.clear();
+this->moves.clear();
 
 
         if(currentPos.first-2>=0&&currentPos.second-1>=0)
         {
-               movesKnight.emplace_back(currentPos.first-2,currentPos.second-1);
+               moves.emplace_back(currentPos.first-2,currentPos.second-1);
         }
 
 
         if(currentPos.first-2>=0&&currentPos.second+1<=7)
         {
-               movesKnight.emplace_back(currentPos.first-2,currentPos.second+1);
+               moves.emplace_back(currentPos.first-2,currentPos.second+1);
         }
 
         if(currentPos.first-1>=0&&currentPos.second-2>=0)
          {
-                movesKnight.emplace_back(currentPos.first-1,currentPos.second-2);
+                moves.emplace_back(currentPos.first-1,currentPos.second-2);
          }
 
         if(currentPos.first-1>=0&&currentPos.second+2<=7)
         {
-               movesKnight.emplace_back(currentPos.first-1,currentPos.second+2);
+               moves.emplace_back(currentPos.first-1,currentPos.second+2);
         }
 
          if(currentPos.first+1<=7&&currentPos.second-2>=0)
          {
-                movesKnight.emplace_back(currentPos.first+1,currentPos.second-2);
+                moves.emplace_back(currentPos.first+1,currentPos.second-2);
          }
 
          if(currentPos.first+1<=7&&currentPos.second+2<=7)
          {
-                movesKnight.emplace_back(currentPos.first+1,currentPos.second+2);
+                moves.emplace_back(currentPos.first+1,currentPos.second+2);
          }
 
 
          if(currentPos.first+2<=7&&currentPos.second-1>=0)
          {
-                movesKnight.emplace_back(currentPos.first+2,currentPos.second-1);
+                moves.emplace_back(currentPos.first+2,currentPos.second-1);
          }
          if(currentPos.first+2<=7&&currentPos.second+1<=7)
          {
-                movesKnight.emplace_back(currentPos.first+2,currentPos.second+1);
+                moves.emplace_back(currentPos.first+2,currentPos.second+1);
 
          }
 

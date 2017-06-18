@@ -12,6 +12,7 @@ struct PawnChess:public BaseChess
     PawnChess(int,int,std::string,BoardChess*,bool);
     PawnChess(PawnChess&&,BoardChess*);
     ~PawnChess(){};
+    void possibleMoves(BoardChess* board);
 };
 
 

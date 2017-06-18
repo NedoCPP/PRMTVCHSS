@@ -16,7 +16,7 @@ bool BishopChess::step(int x, int y, BoardChess *board)
 {
    possibleMoves(board);
 
-   for(auto it=movesBishop.begin();it<=movesBishop.end()-1;it++)
+   for(auto it=moves.begin();it<=moves.end()-1;it++)
     {
 
        if(it->first==y-1&&it->second==x-1)
@@ -27,7 +27,7 @@ bool BishopChess::step(int x, int y, BoardChess *board)
            return 1;
        }
 
-     else if(it==movesBishop.end()-1)
+     else if(it==moves.end()-1)
        {
            {std::cout<<"move is impossible"<<std::endl;
                     return 0;}
@@ -38,7 +38,7 @@ bool BishopChess::step(int x, int y, BoardChess *board)
 }
 void BishopChess::possibleMoves(BoardChess *board)
 {
-this->movesBishop.clear();
+this->moves.clear();
 int x=currentPos.second;
 int y=currentPos.first;
 
@@ -51,12 +51,12 @@ for(int i=0;i<4;i++)
      if(board->board[y][x]==this){}
   else{
       if(board->board[y][x]==nullptr)
-        movesBishop.emplace_back(y,x);
+        moves.emplace_back(y,x);
       else if(board->board[y][x]->color==this->color)
         break;
       else if(board->board[y][x]->color!=this->color)
         {
-            movesBishop.emplace_back(y,x);
+            moves.emplace_back(y,x);
             break;
         }
      }

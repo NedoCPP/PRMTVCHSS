@@ -4,6 +4,7 @@
 #include <utility>
 #include "boardchess.h"
 #include <string>
+#include <vector>
 
 
 struct BoardChess;
@@ -19,6 +20,7 @@ struct BaseChess
     BaseChess(std::string s):sign(std::move(s)){}
     BaseChess(){}
     virtual ~BaseChess(){};
+    std::vector<std::pair<int,int>> moves;
 };
 
 
