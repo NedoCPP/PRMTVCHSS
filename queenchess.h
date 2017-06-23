@@ -9,7 +9,7 @@ struct QueenChess:public BaseChess
        bool step(int x, int y, BoardChess*) override;
        QueenChess(int,int, std::string,BoardChess*,bool);
 
-       void possibleMoves(BoardChess*);
+       void possibleMoves(BoardChess*)override;
        ~QueenChess(){};
 };
 

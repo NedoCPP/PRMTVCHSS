@@ -10,8 +10,8 @@ struct KingChess:public BaseChess
 
        bool step(int x, int y, BoardChess*) override;
        KingChess(int,int, std::string,BoardChess*,bool);
+       void possibleMoves(BoardChess*) override;
 
-       void possibleMoves(BoardChess*);
        ~KingChess(){};
 };
 

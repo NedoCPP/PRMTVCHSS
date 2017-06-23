@@ -35,6 +35,7 @@ PawnChess::PawnChess(int x,int y, std::string s,BoardChess* b,bool color)
 
 void PawnChess::possibleMoves(BoardChess *board)
 {
+    this->moves.clear();
     int y=currentPos.first;
     int x=currentPos.second;
 

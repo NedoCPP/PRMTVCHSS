@@ -40,11 +40,10 @@ bool KingChess::step(int x, int y, BoardChess *board)
 
 void KingChess::possibleMoves(BoardChess *board)
 {
+    using std::swap;
     this->moves.clear();
     int x=currentPos.second;
     int y=currentPos.first;
-
-
 
         for(int i=0;i<8;i++)
          {
@@ -64,24 +63,37 @@ void KingChess::possibleMoves(BoardChess *board)
             }
 
 
+ if(x>=0&&x<=7&&y>=0&&y<=7)
+{
   if(board->board[y][x]==nullptr)
   {
+      std::swap(board->board[y][x],
+      board->board[currentPos.first][currentPos.second]);
+
+
+
+
       for(auto& it:board->pawns)//it-unique_ptr`s to BaseChess
         {
-          for(auto& jt:it->moves)//through the moves of BaseChess
-          {
-            if(jt.first==y&&jt.second==x)
-             break;// if [y][x]-one of potential moves of it
-
-          }
-
+            it->possibleMoves(board);
+             for(auto& j:it->moves)
+                {
+                   if(j.first==y&&j.second==x);
+                   else {this->moves.emplace_back(y,x);}
+                }
 
         }
-      moves.emplace_back(y,x);
+
+      std::swap(board->board[currentPos.first][currentPos.second],
+      board->board[y][x]);
 
       }
 else break;
-         }
+}
+ else continue;
+    }
+
+
 
 
 }

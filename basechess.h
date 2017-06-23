@@ -21,6 +21,7 @@ struct BaseChess
     BaseChess(){}
     virtual ~BaseChess(){};
     std::vector<std::pair<int,int>> moves;
+    virtual void possibleMoves(BoardChess*)=0;
 };
 
 

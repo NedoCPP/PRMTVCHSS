@@ -11,7 +11,7 @@ struct BishopChess:public BaseChess
        bool step(int x, int y, BoardChess*) override;
        BishopChess(int,int, std::string,BoardChess*,bool);
 
-       void possibleMoves(BoardChess*);
+       void possibleMoves(BoardChess*) override;
        ~BishopChess(){};
 };
 

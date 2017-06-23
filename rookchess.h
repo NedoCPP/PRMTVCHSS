@@ -10,7 +10,7 @@ struct RookChess:public BaseChess
        bool step(int x, int y, BoardChess*) override;
        RookChess(int,int, std::string,BoardChess*,bool);
 
-       void possibleMoves(BoardChess*);
+       void possibleMoves(BoardChess*)override;
        ~RookChess(){};
 };
 

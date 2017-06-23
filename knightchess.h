@@ -12,7 +12,7 @@ struct KnightChess:public BaseChess
       bool step(int x, int y, BoardChess*) override;
       KnightChess(int,int, std::string,BoardChess*,bool);
 
-      void possibleMoves(BoardChess*);
+      void possibleMoves(BoardChess*)override;
       ~KnightChess(){};
 };
 

@@ -17,7 +17,6 @@ struct BoardChess
     bool color=1;//Определение текущей ходящей стороны
     ~BoardChess(){};
      std::vector<std::unique_ptr<BaseChess>> pawns;
-     void possibleMoves(BoardChess*);
 };
 
 #endif // BOARDCHESS_H
