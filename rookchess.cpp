@@ -69,5 +69,4 @@ void RookChess::possibleMoves(BoardChess* board)
         x=currentPos.second;
         y=currentPos.first;
   }
-
 }

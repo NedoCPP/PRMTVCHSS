@@ -40,59 +40,58 @@ bool KingChess::step(int x, int y, BoardChess *board)
 
 void KingChess::possibleMoves(BoardChess *board)
 {
-    using std::swap;
     this->moves.clear();
     int x=currentPos.second;
     int y=currentPos.first;
 
-        for(int i=0;i<8;i++)
-         {
-             x=currentPos.second;
-             y=currentPos.first;
 
-            switch(i)
-            {
-              case 0:{y-=1;break;}
-              case 1:{x-=1;break;}
-              case 2:{y+=1;break;}
-              case 3:{x+=1;break;}
-              case 4:{y-=1;x-=1;break;}
-              case 5:{x-=1;y+=1;break;}
-              case 6:{y+=1;x+=1;break;}
-              case 7:{x+=1;y-=1;break;}
-            }
+    for(int i=0;i<7;i++)
+    {
+         x=currentPos.second;
+         y=currentPos.first;
+
+
+         switch (i)
+         {
+             case 0:{y--;break;};
+         case 1:{y--;x--;break;};
+             case 2:{x--;break;};
+         case 3:{y++;x--;break;};
+             case 4:{y++;break;};
+         case 5:{y++;x++;break;};
+             case 6:{x++;break;};
+         case 7:{y--;x++;break;};
+         }
 
 
  if(x>=0&&x<=7&&y>=0&&y<=7)
-{
-  if(board->board[y][x]==nullptr)
-  {
-      std::swap(board->board[y][x],
-      board->board[currentPos.first][currentPos.second]);
+    {
+     std::swap(board->board[y][x],
+               board->board[currentPos.first][currentPos.second]);
+
+     for(auto& a:board->board)//a=vector<BaseChess*>
+     {
+         for(auto& b:a)//b=BaseChess*
+         {
+             if(b==nullptr)continue;
+            else if(b!=this)
+             {
+                if(b->step(x,y,board));
+                  else this->moves.emplace_back(y,x);
+             }
+         }
+     }
 
 
 
 
-      for(auto& it:board->pawns)//it-unique_ptr`s to BaseChess
-        {
-            it->possibleMoves(board);
-             for(auto& j:it->moves)
-                {
-                   if(j.first==y&&j.second==x);
-                   else {this->moves.emplace_back(y,x);}
-                }
 
-        }
 
-      std::swap(board->board[currentPos.first][currentPos.second],
-      board->board[y][x]);
+    std::swap(board->board[currentPos.first][currentPos.second],
+              board->board[y][x]);
 
-      }
-else break;
-}
- else continue;
     }
-
+}
 
 
 

@@ -71,7 +71,7 @@ void BoardChess::start() //Основной цикл
 */
 
  std::unique_ptr<KingChess> b2(new KingChess(3,5,"K",this,1));
-  std::unique_ptr<PawnChess> b1(new PawnChess(4,5,"P",this,0));
+  std::unique_ptr<QueenChess> b1(new QueenChess(4,5,"Q",this,0));
   pawns.emplace_back(std::move(b1));
 
 
